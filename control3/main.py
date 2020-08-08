@@ -12,7 +12,7 @@ f = signal(t)
 plt.plot(t, f)
 plt.grid(True)
 plt.title("f(t) = cos(2*pi*3*t)+sin(2*pi*2*t)")
-plt.xlabel("time (s)")
+plt.xlabel("tiempo (s)")
 plt.show()
 
 
@@ -24,15 +24,15 @@ def sinc(t, compress=1):
     return sin(compress*pi*t)/(compress*pi*t)
 
 # Graficando función de muestreo
-Fs = 6     #Frecuencia de muestreo = 6 (para error < 10%, Fs = 7)
+Fs = 7     #Frecuencia de muestreo = 6 (para error < 10%, Fs = 7)
 tn = np.arange(0, 1.1, 1/Fs)
 fs = signal(tn)
 plt.figure()
 plt.plot(t, f, '--')
 plt.stem(tn, fs, 'r', markerfmt='C3o', use_line_collection=True)
 plt.grid(True)
-plt.title("fs(n) = cos(2*pi*3*n)+sin(2*pi*2*n)")
-plt.xlabel("time (s)")
+plt.title("Función de muestreo con frecuencia 7")
+plt.xlabel("tiempo (s)")
 plt.show()
 
 #c. Reconstruyendo f(t) a partir de fs
@@ -48,8 +48,8 @@ plt.plot(tf,sinc_n)
 plt.stem(tn,fs, 'r', markerfmt='C3o', use_line_collection=True)
 plt.xlim([-1, 2])
 plt.grid(True)
-plt.title("fi*sinc(t-ti)")
-plt.xlabel("time (s)")
+plt.title("Función reconstruida: fi*sinc(t-ti)")
+plt.xlabel("tiempo (s)")
 plt.show()
 
 
@@ -67,8 +67,8 @@ plt.plot(t, f)
 plt.plot(tf, sincs, 'r--')
 plt.xlim([0, 1])
 plt.grid(True)
-plt.title("SUM")
-plt.xlabel("time (s)")
+plt.title("Señal original y señal reconstruida con frecuencia 7")
+plt.xlabel("tiempo (s)")
 plt.show()
 
 # Obteniendo porcentaje de error
